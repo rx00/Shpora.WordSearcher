@@ -7,7 +7,7 @@ namespace Shpora.WordSearcher
     {
         public static void Main()
         {
-            using (var client = new GameClient("http://shpora.skbkontur.ru:80/", "e0f18dde-098a-4dcc-b0d9-0a2be653d985"))
+            using (var client = new GameClient("http://shpora.skbkontur.ru:81/", "###USE_API_KEY_HERE###"))
             {
                 var info = client.InitSession();
                 if (info.Status == Status.Conflict)
