@@ -5,9 +5,14 @@ namespace Shpora.WordSearcher
 {
     static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
-            using (var client = new GameClient("http://shpora.skbkontur.ru:81/", "###USE_API_KEY_HERE###"))
+            if (args.Length != 2)
+                throw new ArgumentException("Expected 2 console line arguments!");
+            var url = args[0];
+            var apiKey = args[1];
+
+            using (var client = new GameClient(url, apiKey))
             {
                 var info = client.InitSession();
                 if (info.Status == Status.Conflict)
